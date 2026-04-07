@@ -1,8 +1,8 @@
---- 
-title: social-inbox 
-colorFrom: blue 
-colorTo: purple 
-sdk: docker 
+---
+title: Msocial-inbox
+colorFrom: pink
+colorTo: blue
+sdk: docker
 ---
 
 # Social Inbox Reinforcement Learning Environment
