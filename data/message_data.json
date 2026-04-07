@@ -1,0 +1,229 @@
+[
+  {
+    "id": 1,
+    "content": "Win a free iPhone now!!!",
+    "user": "bot",
+    "timestamp": "2026",
+    "metadata": {},
+    "label": {
+      "category": "spam",
+      "priority": "low",
+      "action": "ignore"
+    }
+  },
+  {
+    "id": 2,
+    "content": "Congratulations! You won a lottery",
+    "user": "unknown",
+    "timestamp": "2026",
+    "metadata": {},
+    "label": {
+      "category": "spam",
+      "priority": "low",
+      "action": "ignore"
+    }
+  },
+  {
+    "id": 3,
+    "content": "How do I reset my password? I forgot it.",
+    "user": "user_1",
+    "timestamp": "2026",
+    "metadata": {},
+    "label": {
+      "category": "query",
+      "priority": "medium",
+      "action": "respond"
+    }
+  },
+  {
+  "id": 4,
+  "content": "Something is seriously wrong with my account, please check ASAP!",
+  "user": "user_204",
+  "timestamp": "2026",
+  "metadata": {"user_type": "premium"},
+  "label": {
+    "category": "mixed",
+    "priority": "high",
+    "action": "escalate"
+  }
+  },
+  {
+    "id": 5,
+    "content": "Great product! Love the new features.",
+    "user": "user_2",
+    "timestamp": "2026",
+    "metadata": {},
+    "label": {
+      "category": "feedback",
+      "priority": "low",
+      "action": "respond"
+    }
+  },
+  {
+    "id": 6,
+    "content": "Your new update has some nice improvements. Could you also improve the search feature?",
+    "user": "user_6",
+    "timestamp": "2026",
+    "metadata": {"user_type": "premium"},
+    "label": {
+      "category": "feedback",
+      "priority": "medium",
+      "action": "respond"
+    }
+  },
+  {
+    "id": 7,
+    "content": "The app keeps logging me out repeatedly. It's quite frustrating.",
+    "user": "user_8",
+    "timestamp": "2026",
+    "metadata": {},
+    "label": {
+      "category": "complaint",
+      "priority": "medium",
+      "action": "respond"
+    }
+  },
+  {
+    "id": 8,
+    "content": "Do you offer any discounts for first-time users?",
+    "user": "user_9",
+    "timestamp": "2026",
+    "metadata": {"user_type": "premium"},
+    "label": {
+      "category": "query",
+      "priority": "low",
+      "action": "respond"
+    }
+  },
+  {
+    "id": 9,
+    "content": "I like the product overall, but delivery took longer than expected.",
+    "user": "user_10",
+    "timestamp": "2026",
+    "metadata": {},
+    "label": {
+      "category": "feedback",
+      "priority": "medium",
+      "action": "respond"
+    }
+  },
+  {
+    "id": 10,
+    "content": "Checking pricing, also facing login delay",
+    "user": "user_12",
+    "timestamp": "2026",
+    "metadata": {},
+    "label": {
+      "category": "query",
+      "priority": "medium",
+      "action": "respond"
+    }
+  },
+  {
+    "id": 11,
+    "content": "I've been charged twice for my subscription. This is unacceptable, please fix immediately.",
+    "user": "user_101",
+    "timestamp": "2026",
+    "metadata": {"user_type": "premium"},
+    "label": {
+      "category": "complaint",
+      "priority": "high",
+      "action": "escalate"
+    }
+  },
+  {
+  "id": 12,
+  "content": "Facing minor login delays, nothing major but thought to report.",
+  "user": "user_203",
+  "timestamp": "2026",
+  "metadata": {"user_type": "premium"},
+  "label": {
+    "category": "mixed",
+    "priority": "medium",
+    "action": "respond"
+  }
+  },
+  {
+    "id": 13,
+    "content": "Thanks for the great service. Nothing works anymore.",
+    "user": "user_102",
+    "timestamp": "2026",
+    "metadata": {"user_type": "free"},
+    "label": {
+      "category": "complaint",
+      "priority": "medium",
+      "action": "respond"
+    }
+  },
+  { 
+   "id": 14,
+   "content": "Not sure if it's a bug or my mistake, but I can't upload files.",
+   "user": "user_202",
+   "timestamp": "2026",
+   "label": {
+    "category": "mixed",
+    "priority": "medium",
+    "action": "respond"
+  }
+  },
+  {
+    "id": 15,
+    "content": "I love the new update, but it would be great if you could add a dark mode.",
+    "user": "user_103",
+    "timestamp": "2026",
+    "metadata": {"user_type": "premium"},
+    "label": {
+      "category": "feedback",
+      "priority": "low",
+      "action": "respond"
+    }
+  },
+  {
+    "id": 16,
+    "content": "We would like to explore a business partnership. Let me know your availability.",
+    "user": "user_104",
+    "timestamp": "2026",
+    "metadata": {"user_type": "unknown"},
+    "label": {
+      "category": "spam",
+      "priority": "low",
+      "action": "ignore"
+    }
+  },
+  {
+    "id": 17,
+    "content": "Hi, I accidentally deleted my data. Is there any way to recover it?",
+    "user": "user_105",
+    "timestamp": "2026",
+    "metadata": {"user_type": "premium"},
+    "label": {
+      "category": "query",
+      "priority": "high",
+      "action": "respond"
+    }
+  },
+  {
+    "id": 18,
+    "content": "I love the UI but it's so slow lately that it's unusable.",
+    "user": "user_106",
+    "timestamp": "2026",
+    "metadata": {"user_type": "premium"},
+    "label": {
+      "category": "complaint",
+      "priority": "high",
+      "action": "escalate"
+    }
+  },
+  {
+    "id": 19,
+    "content": "The payment failed earlier but it's working now. Just wanted to inform you.",
+    "user": "user_201",
+    "timestamp": "2026",
+    "metadata": {"user_type": "premium"},
+    "label": {
+      "category": "mixed",
+      "priority": "low",
+      "action": "respond"
+    }
+}
+]

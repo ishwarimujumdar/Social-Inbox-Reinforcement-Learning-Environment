@@ -1,0 +1,10 @@
+name: social_inbox
+
+app: server.app:app
+
+description: RL environment for social media inbox triage
+
+difficulty_levels:
+  - easy
+  - medium
+  - hard
