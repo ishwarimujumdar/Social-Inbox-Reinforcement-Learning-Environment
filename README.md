@@ -1,5 +1,5 @@
 ---
-title: Msocial-inbox
+title: social-inbox
 colorFrom: pink
 colorTo: blue
 sdk: docker
