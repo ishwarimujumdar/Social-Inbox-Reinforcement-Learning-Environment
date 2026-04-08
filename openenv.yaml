@@ -8,3 +8,16 @@ difficulty_levels:
   - easy
   - medium
   - hard
+
+tasks:
+  - name: easy
+    grader: server.environment:_grade_easy
+    description: "Basic classification of messages. Reward for correct category, priority, and action."
+
+  - name: medium
+    grader: server.environment:_grade_medium
+    description: "Priority-sensitive handling. Penalizes ignoring high-priority messages and unnecessary escalations."
+
+  - name: hard
+    grader: server.environment:_grade_hard
+    description: "Business-aware decision making. Penalizes critical mistakes such as ignoring premium users, misclassifying mixed intent, or late handling."

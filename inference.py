@@ -166,86 +166,87 @@ def get_model_decision(client, step, message, state, last_reward, history):
 # =========================
 def main():
     client = OpenAI(base_url=API_BASE_URL, api_key=API_KEY)
-    env = InboxTriageEnv(task_type=DIFFICULTY)
 
-    history = []
-    rewards = []
-    steps_taken = 0
-    score = 0.0
-    success = False
-    last_reward = 0.0
+    tasks = ["easy", "medium", "hard"]  # run all tasks
+    for task_type in tasks:
+        env = InboxTriageEnv(task_type=task_type)
+        history = []
+        rewards = []
+        steps_taken = 0
+        score = 0.0
+        success = False
+        last_reward = 0.0
 
-    log_start(TASK_NAME, BENCHMARK, MODEL_NAME)
+        log_start(TASK_NAME, f"{BENCHMARK}-{task_type}", MODEL_NAME)
 
-    try:
-        obs = env.reset()
-
-        for step in range(1, MAX_STEPS + 1):
-            if obs.done:
-                break
-
-            message = obs.message
-            state = env.state
-
-            decision = get_model_decision(
-                client,
-                step,
-                message,
-                state,
-                last_reward,
-                history
-            )
-
-            action = InboxAction(
-                message_id=message.id,
-                priority=decision.get("priority", "medium"),
-                category=decision.get("category", "query"),
-                action=decision.get("action", "respond"),
-            )
-
-            obs = env.step(action)
-
-            reward = obs.reward or 0.0
-            done = obs.done
-
-            rewards.append(reward)
-            steps_taken = step
-            last_reward = reward
-
-            action_str = (
-                f"id={action.message_id} "
-                f"pri={action.priority} "
-                f"cat={action.category} "
-                f"act={action.action}"
-            )
-
-            log_step(step, action_str, reward, done, None)
-
-            # history (aligned with sample)
-            history.append(
-                f"Step {step}: {action.action} ({action.category},{action.priority}) -> reward {reward:.2f}"
-            )
-
-            if done:
-                break
-
-        # scoring
-        if rewards:
-            score = sum(rewards) / len(rewards)
-
-        score = max(0.0, min(1.0, score))
-        success = score > 0.1
-
-    except Exception as e:
-        print(f"[DEBUG] Runtime error: {e}", flush=True)
-
-    finally:
         try:
-            env.close()
-        except:
-            pass
+            obs = env.reset()
 
-        log_end(success, steps_taken, score, rewards)
+            for step in range(1, MAX_STEPS + 1):
+                if obs.done:
+                    break
+
+                message = obs.message
+                state = env.state
+
+                decision = get_model_decision(
+                    client,
+                    step,
+                    message,
+                    state,
+                    last_reward,
+                    history
+                )
+
+                action = InboxAction(
+                    message_id=message.id,
+                    priority=decision.get("priority", "medium"),
+                    category=decision.get("category", "query"),
+                    action=decision.get("action", "respond"),
+                )
+
+                obs = env.step(action)
+
+                reward = obs.reward or 0.0
+                done = obs.done
+
+                rewards.append(reward)
+                steps_taken = step
+                last_reward = reward
+
+                action_str = (
+                    f"id={action.message_id} "
+                    f"pri={action.priority} "
+                    f"cat={action.category} "
+                    f"act={action.action}"
+                )
+
+                log_step(step, action_str, reward, done, None)
+
+                # history (aligned with sample)
+                history.append(
+                    f"Step {step}: {action.action} ({action.category},{action.priority}) -> reward {reward:.2f}"
+                )
+
+                if done:
+                    break
+
+            # scoring
+            if rewards:
+                score = sum(rewards) / len(rewards)
+            score = max(0.0, min(1.0, score))
+            success = score > 0.1
+
+        except Exception as e:
+            print(f"[DEBUG] Runtime error ({task_type}): {e}", flush=True)
+
+        finally:
+            try:
+                env.close()
+            except:
+                pass
+
+            log_end(success, steps_taken, score, rewards)
 
 
 if __name__ == "__main__":
